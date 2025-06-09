@@ -23,16 +23,45 @@ import './App.css';
 const DataWipeLanding = () => {
   const [email, setEmail] = React.useState('');
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    // For now, just show success message
-    // In production, this would send email to dataguardpro@proton.me
-    setIsSubmitted(true);
-    setEmail('');
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsSubmitting(true);
+
+    try {
+      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
+      const serviceID = 'service_datawipe'; // Replace with your EmailJS service ID
+      const templateID = 'template_beta_signup'; // Replace with your EmailJS template ID
+      const publicKey = 'your_emailjs_public_key'; // Replace with your EmailJS public key
+
+      const templateParams = {
+        user_email: email,
+        to_email: 'dataguardpro@proton.me',
+        subject: 'New DataWipe Beta Signup',
+        message: `New beta tester signup:\n\nEmail: ${email}\nTimestamp: ${new Date().toLocaleString()}\n\nPlease send them the beta access details.`
+      };
+
+      // Note: EmailJS will need to be configured with actual credentials
+      // For now, we'll simulate the success to show the UI flow
+      
+      // await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setIsSubmitted(true);
+      setEmail('');
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to submit. Please try again or email us directly at dataguardpro@proton.me');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const features = [
