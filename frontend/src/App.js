@@ -48,6 +48,12 @@ const DataWipeLanding = () => {
       setIsSubmitted(true);
       setEmail('');
       
+      // Force form reset by clearing the input field
+      const emailInput = document.getElementById('email');
+      if (emailInput) {
+        emailInput.value = '';
+      }
+      
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
       
