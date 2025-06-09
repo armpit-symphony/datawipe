@@ -433,13 +433,27 @@ const DataWipeLanding = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-secondary-800/50 border border-secondary-600 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-secondary-800/50 border border-secondary-600 rounded-xl text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:opacity-50"
                       placeholder="Enter your email for beta access"
                     />
                   </div>
-                  <button type="submit" className="btn-primary w-full">
-                    <Mail className="w-5 h-5 mr-2" />
-                    Join Beta Testing
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Mail className="w-5 h-5 mr-2" />
+                        Join Beta Testing
+                      </>
+                    )}
                   </button>
                 </form>
               )}
