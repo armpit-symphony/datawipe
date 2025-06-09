@@ -156,13 +156,10 @@ const DataWipeLanding = () => {
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex justify-center"
             >
               <button className="btn-primary text-lg">
                 Join Beta Testing <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-              <button className="btn-secondary text-lg">
-                <Play className="w-5 h-5 mr-2" /> Watch Demo
               </button>
             </motion.div>
 
