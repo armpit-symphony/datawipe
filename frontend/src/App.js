@@ -30,10 +30,10 @@ const DataWipeLanding = () => {
     setIsSubmitting(true);
 
     try {
-      // EmailJS configuration - you'll need to replace these with your actual EmailJS credentials
-      const serviceID = 'service_datawipe'; // Replace with your EmailJS service ID
-      const templateID = 'template_beta_signup'; // Replace with your EmailJS template ID
-      const publicKey = 'your_emailjs_public_key'; // Replace with your EmailJS public key
+      // EmailJS configuration with your credentials
+      const serviceID = 'service_a3wtsjo';
+      const templateID = 'template_cwbg69y';
+      const publicKey = 'qAvuUzURVt4x5g47y';
 
       const templateParams = {
         user_email: email,
@@ -42,13 +42,8 @@ const DataWipeLanding = () => {
         message: `New beta tester signup:\n\nEmail: ${email}\nTimestamp: ${new Date().toLocaleString()}\n\nPlease send them the beta access details.`
       };
 
-      // Note: EmailJS will need to be configured with actual credentials
-      // For now, we'll simulate the success to show the UI flow
-      
-      // await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email notification
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
       
       setIsSubmitted(true);
       setEmail('');
