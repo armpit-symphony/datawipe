@@ -529,7 +529,7 @@ const DataWipeLanding = () => {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/datawipe">
         <Routes>
           <Route path="/" element={<DataWipeLanding />} />
         </Routes>
