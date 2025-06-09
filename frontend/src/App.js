@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Shield, 
   Phone, 
