@@ -15,8 +15,7 @@ import {
   Database,
   Clock,
   UserCheck,
-  ArrowRight,
-  Play
+  ArrowRight
 } from 'lucide-react';
 import './App.css';
 
